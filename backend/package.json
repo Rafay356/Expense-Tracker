@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-practise",
+  "version": "1.0.0",
+  "description": "practise node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rafay",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^8.16.4",
+    "nodemon": "^3.1.10",
+    "yup": "^1.6.1"
+  }
+}
