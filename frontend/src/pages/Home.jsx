@@ -10,7 +10,7 @@ export const Home = () => {
     try {
       const res = await API.get("/");
       if (res.status !== 200) throw new Error("Failed to fetch expenses");
-      console.log(res.data);
+
       setExpenses(res.data.Expenses);
     } catch (err) {
       setError({ error: err });

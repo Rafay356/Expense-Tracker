@@ -1,19 +1,14 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as yup from "yup";
-
-const AddExpenseSchema = yup.object().shape({
-  title: yup
-    .string()
-    .required("Title is required")
-    .min(3, "Title must be at least 3 characters long"),
-  amount: yup
-    .number()
-    .required("Amount is required")
-    .positive("Amount must be a positive number"),
-  date: yup.date().default(() => new Date()),
-});
+import { useContext } from "react";
+import {
+  ThemeContext,
+  AddExpenseSchemaContext,
+} from "../context/createContext";
 
 export const ExpenseForm = ({ initialValues, onSubmit, submitError }) => {
+  const theme = useContext(ThemeContext);
+  const AddExpenseSchema = useContext(AddExpenseSchemaContext);
+
   return (
     <Formik
       initialValues={initialValues}
@@ -79,7 +74,7 @@ export const ExpenseForm = ({ initialValues, onSubmit, submitError }) => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-yellow-500 text-white px-4 py-2 rounded w-full"
+            className={`${theme} text-white px-4 py-2 rounded w-full`}
           >
             {isSubmitting ? "Submitting..." : "Add Expense"}
           </button>
